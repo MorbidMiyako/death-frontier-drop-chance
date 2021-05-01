@@ -1,3 +1,11 @@
+from decimal import *
+
+
+# we will use y =decimal(str(y)).quantize(Decimal('1.0000)) to get a more accurate result for y
+def roundDecimal(y, decimals=4):
+    return Decimal(str(y)).quantize(Decimal(f"1.{decimals*'0'}"))
+
+
 # currentChance
 z = 0.06275
 print("initial chance")
@@ -26,6 +34,7 @@ print(f"using chance value {x}")
 # subcase 2
 # x * 2.22 = 1.06183
 y = x/2.22
+y = roundDecimal(y)
 print("subcase 2")
 print(y)
 print(1.045 < y < 1.055)
@@ -34,6 +43,7 @@ print(1.045 < y < 1.055)
 # x * 1.1**4 * 1.05**3 * 1.12 * 1.25 * 1.3 = 1.06183
 print("subcase 3")
 y = x/(1.1**4 * 1.05**3 * 1.12 * 1.25 * 1.3)
+y = roundDecimal(y)
 print(y)
 print(1.045 < y < 1.055)
 
@@ -41,6 +51,7 @@ print(1.045 < y < 1.055)
 # x * (1 + 0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3) = 1.06183
 print("subcase 4")
 y = x/(1 + 0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3)
+y = roundDecimal(y)
 print(y)
 print(1.045 < y < 1.055)
 
@@ -61,6 +72,7 @@ print(f"using chance value {x}")
 # subcase 2
 # x * 2.22 = 0.06183
 y = x/2.22
+y = roundDecimal(y)
 print("subcase 2")
 print(y)
 print(0.045 < y < 0.055)
@@ -68,6 +80,7 @@ print(0.045 < y < 0.055)
 # subcase 3
 # x * 1.1**4 * 1.05**3 * 1.12 * 1.25 * 1.3 = 0.06183
 y = x / (1.1**4 * 1.05**3 * 1.12 * 1.25 * 1.3)
+y = roundDecimal(y)
 print("subcase 3")
 print(y)
 print(0.045 < y < 0.055)
@@ -76,6 +89,7 @@ print(0.045 < y < 0.055)
 # subcase 4
 # x * (1 + 0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3) = 1.06183
 y = x/(1 + 0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3)
+y = roundDecimal(y)
 print("subcase 4")
 print(y)
 print(0.045 < y < 0.055)
@@ -93,6 +107,7 @@ print(f"using chance value {x}")
 # subcase 1
 # x + 1.22 = 6.183
 y = x - 1.22
+y = roundDecimal(y)
 print("subcase 1")
 print(y)
 print(4.5 < y < 5.5)
@@ -100,6 +115,7 @@ print(4.5 < y < 5.5)
 # subcase 2
 # x * 2.22 = 6.183
 y = x/2.22
+y = roundDecimal(y)
 print("subcase 2")
 print(y)
 print(4.5 < y < 5.5)
@@ -107,6 +123,7 @@ print(4.5 < y < 5.5)
 # subcase 3
 # x * 1.1**4 * 1.05**3 * 1.12 * 1.25 * 1.3 = 6.183
 y = x / (1.1**4 * 1.05**3 * 1.12 * 1.25 * 1.3)
+y = roundDecimal(y)
 print("subcase 3")
 print(y)
 print(4.5 < y < 5.5)
@@ -115,6 +132,7 @@ print(4.5 < y < 5.5)
 # subcase 4
 # x * (1 + 0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3) = 1.06183
 y = x/(1 + 0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3)
+y = roundDecimal(y)
 print("subcase 4")
 print(y)
 print(4.5 < y < 5.5)
@@ -122,6 +140,7 @@ print(4.5 < y < 5.5)
 # subcase 5
 # x + (0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3) = 1.06183
 y = x-(0.1*4 + 0.05*3 + 0.12 + 0.25 + 0.3)
+y = roundDecimal(y)
 print("subcase 4")
 print(y)
 print(4.5 < y < 5.5)
